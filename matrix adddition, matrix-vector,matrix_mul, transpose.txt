@@ -1,0 +1,85 @@
+#Maxtrix addition
+mat1 = [[1,2,3],
+        [4,5,6],
+         [7,8,9]]
+mat2 = [[11,12,13],
+         [14,15,16],
+         [17,18,19]]
+
+n_row = len(mat1)
+n_col = len(mat1[0])
+
+mat_add = list()
+
+for row_idx in range(n_row):
+    row_add = list()
+    for col_idx in range(n_col):
+        element1 = mat1[row_idx][col_idx]
+        element2 = mat2[row_idx][col_idx]
+        row_add.append(element1+element2)
+    mat_add.append(row_add)
+print(mat_add)
+#matrix-vector Multiplication
+
+mat = [[1,2,3],
+        [4,5,6],
+         [7,8,9],
+         [10,11,12]]
+vec = [10, 20, 30]
+
+n_row = len(mat)
+n_col = len(mat[0])
+mat_vec_mul = list()
+for row_idx in range(n_row):
+    mat_vec = mat[row_idx]
+    dot_prod = 0
+    for col_idx in range(n_col):
+        dot_prod += mat_vec[col_idx]*vec[col_idx]
+    mat_vec_mul.append(dot_prod)
+    
+print("multiplication of mat and vec:\n", mat_vec_mul)
+
+#matrix-matrix Multiplication
+
+mat1 = [[1,2,3], 
+         [4,5,6],
+          [7,8,9]]
+mat2 = [[11,12,13],
+         [14,15,16],
+          [17,18,19]]
+
+n_row = len(mat1)
+n_col = len(mat2)
+
+mat_mat_mul = list()
+
+for row_idx in range(n_row):
+    vec1 = mat1[row_idx]
+    dot_prods = list()
+    for col_idx in range(n_col):
+        vec2 = list()
+        for inner_idx in range(n_col):
+            vec2.append(mat2[inner_idx][row_idx])
+        dot_prod = 0
+        for inner_idx in range(n_col):
+            dot_prod += vec1[inner_idx]*vec2[inner_idx]
+        dot_prods.append(dot_prod)
+    mat_mat_mul.append(dot_prods)
+print("multiplication of mat1 and mat2:\n",mat_mat_mul)
+#transposed Matrix
+mat= [[1,2,3],
+       [4,5,6],
+       [7,8,9],
+       [10,11,12]]
+n_row = len(mat)
+n_col = len(mat[0])
+
+mat_t = list()
+
+for col_idx in range(n_col):
+    column = list()
+    for row_idx in range(n_col):
+        column.append(mat[row_idx][col_idx])
+    mat_t.append(column)
+print("transpose of mat:\n",mat_t)
+    
